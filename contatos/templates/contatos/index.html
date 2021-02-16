@@ -29,7 +29,9 @@
   <ul class="pagination">
     {% for page in contatos.paginator.page_range%} {% if contatos.number %}
     <li class="page-item">
-      <a class="page-link" href="?p={{page}}">{{page}}</a>
+      <a class="page-link" href="?p={{page}}&termo={{request.GET.termo}}"
+        >{{page}}</a
+      >
     </li>
     {%else%}
     <li class="page-item active">
