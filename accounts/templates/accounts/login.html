@@ -1,2 +1,30 @@
-{%extends 'base.html'%} {%block conteudo%} Login {% include
-'parciais/_messages.html'%} {%endblock%}
+{%extends 'base.html'%} {%block conteudo%}
+<h1>Login</h1>
+
+<form method="POST" action="{%url 'login'%}">
+  {%include 'parciais/_messages.html'%} {% csrf_token %}
+
+  <div class="form-group">
+    <label for="">Usuário</label>
+    <input
+      type="text"
+      class="form-control"
+      aria-describedby="emailHelp"
+      name="usuario"
+      value="{{request.POST.usuario}}"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="">Senha</label>
+    <input
+      type="password"
+      class="form-control"
+      aria-describedby="emailHelp"
+      name="senha"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Fazer login</button>
+</form>
+{%endblock%}

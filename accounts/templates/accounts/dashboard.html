@@ -1,1 +1,5 @@
-{%extends 'base.html'%} {%block conteudo%} Dashboard {%endblock%}
+{%extends 'base.html'%} {%block conteudo%}
+<h1>Olá {{user.first_name}} {{user.last_name}}</h1>
+{%include 'parciais/_messages.html'%}
+<p>O seu nome de usuario é {{user}}.</p>
+Dashboard {%endblock%}
