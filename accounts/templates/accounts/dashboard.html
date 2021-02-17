@@ -4,4 +4,22 @@
 <h1>Olá {{user.first_name}} {{user.last_name}}</h1>
 {%include 'parciais/_messages.html'%}
 <p>O seu nome de usuario é {{user}}.</p>
-Dashboard {%endblock%}
+
+<div class="container">
+  <form
+    method="POST"
+    enctype="multipart/form-data"
+    action="{% url 'dashboard' %}"
+  >
+    {% csrf_token %}
+    <table class="table">
+      {{form}}
+      <tr>
+        <td colspan="2">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+{%endblock%}
